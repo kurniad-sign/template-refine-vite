@@ -1,5 +1,5 @@
-import { useMenu } from "@refinedev/core";
-import { NavLink } from "react-router";
+import { useMenu } from '@refinedev/core';
+import { NavLink } from 'react-router';
 
 export const Menu = () => {
   const { menuItems } = useMenu();
@@ -9,7 +9,7 @@ export const Menu = () => {
       <ul>
         {menuItems.map((item) => (
           <li key={item.key}>
-            <NavLink to={item.route ?? "/"}>{item.label}</NavLink>
+            <NavLink to={item.route ?? '/'}>{item.label}</NavLink>
           </li>
         ))}
       </ul>
