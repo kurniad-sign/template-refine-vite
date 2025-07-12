@@ -7,13 +7,14 @@ import routerBindings, {
 } from '@refinedev/react-router';
 import dataProvider from '@refinedev/simple-rest';
 import { HeroUIProvider } from '@heroui/react';
+import { Layout } from '@/layout';
 import { Outlet, useHref, useNavigate } from 'react-router';
 
 import { routeResources } from './resources';
 
 export function RefineProviderRouter() {
   const navigate = useNavigate();
-  
+
   return (
     <HeroUIProvider
       navigate={navigate}
@@ -31,7 +32,9 @@ export function RefineProviderRouter() {
           projectId: 'N1WMaW-mepCf6-b6Fkb3',
         }}
       >
-        <Outlet />
+        <Layout>
+          <Outlet />
+        </Layout>
 
         <RefineKbar />
         <UnsavedChangesNotifier />

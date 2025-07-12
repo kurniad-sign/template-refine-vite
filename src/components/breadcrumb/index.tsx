@@ -1,22 +1,26 @@
 import { useBreadcrumb } from '@refinedev/core';
-import { Link } from 'react-router';
+import {
+  BreadcrumbItem as HeroUIBreadcrumbItem,
+  Breadcrumbs as HeroUIBreadcrumbs,
+} from '@heroui/breadcrumbs';
+
+import { Text } from '../text';
 
 export const Breadcrumb = () => {
   const { breadcrumbs } = useBreadcrumb();
 
   return (
-    <ul className="breadcrumb">
+    <HeroUIBreadcrumbs underline="hover" className="my-2">
       {breadcrumbs.map((breadcrumb) => {
         return (
-          <li key={`breadcrumb-${breadcrumb.label}`}>
-            {breadcrumb.href ? (
-              <Link to={breadcrumb.href}>{breadcrumb.label}</Link>
-            ) : (
-              <span>{breadcrumb.label}</span>
-            )}
-          </li>
+          <HeroUIBreadcrumbItem
+            href={breadcrumb.href}
+            key={`breadcrumb-${breadcrumb.label}`}
+          >
+            <Text>{breadcrumb.label}</Text>
+          </HeroUIBreadcrumbItem>
         );
       })}
-    </ul>
+    </HeroUIBreadcrumbs>
   );
 };
