@@ -1,37 +1,10 @@
-import { Refine } from '@refinedev/core';
-import { DevtoolsPanel } from '@refinedev/devtools';
-import { RefineKbar } from '@refinedev/kbar';
-import routerBindings, {
-  DocumentTitleHandler,
-  UnsavedChangesNotifier,
-} from '@refinedev/react-router';
-import dataProvider from '@refinedev/simple-rest';
-import { BrowserRouter } from 'react-router';
+import { useMemo } from 'react';
+import { RouterProvider } from 'react-router';
 
-import { routeResources } from './resources';
-import { AppRoute } from './route';
+import { createAppRouter } from './router';
 
 export function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <Refine
-        dataProvider={dataProvider('https://api.fake-rest.refine.dev')}
-        routerProvider={routerBindings}
-        resources={routeResources}
-        options={{
-          syncWithLocation: true,
-          warnWhenUnsavedChanges: true,
-          useNewQueryKeys: true,
-          projectId: 'N1WMaW-mepCf6-b6Fkb3',
-        }}
-      >
-        <AppRoute />
+  const router = useMemo(() => createAppRouter(), []);
 
-        <RefineKbar />
-        <UnsavedChangesNotifier />
-        <DocumentTitleHandler />
-      </Refine>
-      <DevtoolsPanel />
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }

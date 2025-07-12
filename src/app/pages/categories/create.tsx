@@ -1,5 +1,6 @@
 import { useNavigation } from '@refinedev/core';
 import { useForm } from '@refinedev/react-hook-form';
+import { Button } from '@heroui/react';
 
 export const CategoryCreate = () => {
   const { list } = useNavigation();
@@ -46,7 +47,9 @@ export const CategoryCreate = () => {
             </span>
           </label>
           <div>
-            <input type="submit" value={'Save'} />
+            <Button type="submit" color="primary">
+              Save
+            </Button>
           </div>
         </div>
       </form>
