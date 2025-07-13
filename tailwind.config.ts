@@ -39,6 +39,19 @@ export default {
   },
   plugins: [
     heroui({
+      layout: {
+        borderWidth: {
+          small: '1px',
+          medium: '2px',
+          large: '3px',
+        },
+        radius: {
+          small: '4px',
+          medium: '6px',
+          large: '8px',
+        },
+        disabledOpacity: '0.3',
+      },
       themes: {
         'accessone-ui': {
           extend: 'light',
